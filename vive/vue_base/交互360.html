@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<link href="css/style.css" rel="stylesheet">-->
+    <script src="../../js/vue.js"></script>
+    <script src="../../js/vue-resource.js"></script>
+    <script>
+        window.onload = function() {
+            var app = new Vue({
+                el: '#app',
+                data: {},
+                methods: {
+                    get: function() {
+
+                        this.$http.jsonp('https://sug.so.360.cn/suggest', {
+                            wb: 'a',
+
+                        }).then(function(res) {
+                            // debugger
+                            alert(res.data);
+                        }, function(res) {
+                            alert(res.status);
+                        })
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+
+<body id="app">
+    <input type="button" value="按钮" @click="get()">
+</body>
+
+</html>

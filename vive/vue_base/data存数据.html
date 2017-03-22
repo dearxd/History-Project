@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../../js/vue.js"></script>
+    <script>
+        window.onload = function() {
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    msg1: 'sub',
+                    msg2: '123',
+                    msg3: 'true',
+                    arr: ['apple', 'orange', 'banana'],
+                    json: {
+                        a: 'one',
+                        b: 'two',
+                        c: 'three'
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <span v-bind:title="msg1">
+            
+        </span>
+        <p>{{msg2}}</p>
+        <p>{{msg3}}</p>
+        <ol>
+            <li v-for="Arr in arr">{{$index}}{{Arr}}</li>
+        </ol>
+        <ul>
+            <li v-for="Json in json">{{$index}}{{Json}} {{$key}}</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

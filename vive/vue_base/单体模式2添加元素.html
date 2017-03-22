@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../../js/vue.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+    <style>
+        body,
+        div,
+        dl,
+        dt,
+        dd,
+        ul,
+        ol,
+        li,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        form,
+        input,
+        textarea,
+        p,
+        th,
+        td {
+            margin: 0;
+            padding: 0;
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        i {
+            font-style: normal;
+        }
+        
+        a img {
+            display: block;
+            border: none;
+        }
+        
+        .left {
+            display: inline;
+            float: left;
+        }
+        
+        .right {
+            display: inline;
+            float: right;
+        }
+        
+        .clear:after {
+            display: block;
+            content: "";
+            clear: both;
+        }
+        
+        .clear {
+            zoom: 1;
+        }
+        
+        textarea {
+            resize: none;
+            border: none 0;
+        }
+        
+        input,
+        select {
+            border: none 0;
+            background: none;
+        }
+        
+        textarea,
+        input,
+        select {
+            outline: none;
+        }
+        
+        table {
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+        
+        body {
+            font-family: "Microsoft YaHei", '宋体', "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            color: #333;
+        }
+        
+        .form-control {
+            width: 400px;
+            height: 50px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 0 20px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            var aBtn = $('.aBtn');
+            var aBox = $('.box');
+
+            var createCon = function() {
+                var con = '<div class="clear">' +
+                    '<label class="col-sm-2 control-label left">' +
+                    '<span class="add-child">+</span>提取正则</label>' +
+                    '<div class="col-sm-8 left">' +
+                    '<textarea name="log_regex" id="log_regex" rows="3" class="form-control"></textarea>' +
+                    '</div>' +
+                    '<div class="col-sm-2 left">' +
+                    '<button class="btn btn-sm btn-primary m-t-n-xs valid" style="margin-top:0px" type="button"><strong>验证正则</strong></button>' +
+                    '</div>' +
+                    '</div>';
+                return con;
+            }
+            var getInstance = function(fn) {
+                var result;
+                return function() {
+                    return result || (result = fn.call(this, arguments));
+                }
+            }
+            var createSingleCon = getInstance(createCon);
+            aBtn.on('click', function() {
+                aBox.append(createSingleCon());
+            });
+            $('.box').on('click', 'button', function() {
+                var a = $(this).closest('.col-sm-2').prev('.col-sm-8').find('textarea').val();
+                console.log(a);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div>
+        <div class="box">
+            <button class="aBtn">添加</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

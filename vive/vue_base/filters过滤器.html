@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../../js/vue.js"></script>
+    <style>
+
+    </style>
+    <script>
+        window.onload = function() {
+            var app = new Vue({
+                el: '#app',
+                data: {}
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        {{'welcome' | uppercase}}
+        <br /> {{'WELCOME' | lowercase}}
+        <!--首字母大写-->
+        <br /> {{'WELCOME'|lowercase|capitalize}}
+        <!--转换成美元-->
+        <br /> {{12|currency}}
+        <!--转换成中文的钱-->
+        <br /> {{12|currency '￥'}}
+    </div>
+
+</body>
+
+</html>

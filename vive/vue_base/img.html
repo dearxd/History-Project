@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../../js/vue.js"></script>
+    <script>
+        window.onload = function() {
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    url: 'http://fanyi.baidu.com/static/translation/img/header/logo_cbfea26.png',
+                    w: '200px',
+                    t: '这是一张图片'
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <img :src="url" :width="w" :title="t" />
+    </div>
+
+</body>
+
+</html>

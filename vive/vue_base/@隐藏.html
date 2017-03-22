@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../../js/vue.js"></script>
+    <style>
+        div.show {
+            width: 200px;
+            height: 200px;
+            background: pink;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    show: true
+                },
+                methods: {
+                    fn: function() {
+                        // if (this.show == false) {
+                        //     this.show = true
+                        // } else {
+                        //     this.show = false
+                        // }
+                        this.show == true ? this.show = false : this.show = true
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" name="" value="隐藏" @click="fn()" />
+        <div class="show" v-if="show">
+
+        </div>
+    </div>
+
+</body>
+
+</html>

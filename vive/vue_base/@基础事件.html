@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="../../js/vue.js"></script>
+    <script>
+        window.onload = function() {
+            var app = new Vue({
+                el: '#app',
+                data: {
+                    el: '#app',
+                    arr: ['apple', 'orange', 'banana']
+                },
+                methods: {
+                    add: function() {
+                        this.arr.push('tomato');
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click='add()'>添加</button>
+        <ol>
+            <li v-for="arry in arr">{{arry}}</li>
+        </ol>
+    </div>
+
+</body>
+
+</html>
